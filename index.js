@@ -45,3 +45,29 @@ console.log(this, func());
 
 // 原型绑定，将user作为运行上下文;
 var func = User.getCount().bind(User);
+
+//综合类知识
+function Foo() {
+    getName = function() { alert(1); }
+    return this;
+}
+
+Foo.getName = function() { alert(2) };
+Foo.prototype.getName = function() { alert(3) };
+var getName = function() { alert(4) };
+
+function getName() { alert(5) };
+
+//输出
+Foo.getName();
+getName();
+Foo().getName();
+getName();
+new Foo.getName();
+new Foo().getName();
+new new Foo().getName();
+
+
+//arguments 转Array
+
+var arrArgs = Array.prototype.splice.call(arguments);
