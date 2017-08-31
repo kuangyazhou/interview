@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .drag{
+            width: 400px;
+            height: 400px;
+            border: 1px solid #FC42FF;
+            cursor: col-resize;
+        }
+    </style>
+</head>
+
+<body>
+<div class="drag">
+
+</div>
+
+</body>
+<script>
+    function Timer() {
+        this.s1 = 0;
+        this.s2 = 0;
+        // 箭头函数
+        setInterval(() => this.s1++, 1000);
+        // 普通函数
+        setInterval(function () {
+//            console.log(this);
+            this.s2++;
+        }, 1000);
+    }
+
+    var timer = new Timer();
+
+    setTimeout(() => console.log('s1: ', timer.s1), 3100);
+    setTimeout(() => console.log('s2: ', timer.s2), 3100);
+
+
+    var pet={
+        data:1,
+        speack:function (a){
+            console.log(this.data+a);
+        }
+    }
+
+    var dog={
+        data:2,
+    }
+
+    pet.speack();//speak中的this指向pet;
+    pet.speack.call(dog,'b');
+    pet.speack.apply(dog,['b']);
+</script>
+
+</html>
