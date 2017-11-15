@@ -44,7 +44,7 @@ let pos=strValue.indexOf('e');
 let arr=[];
 
 // for(pos;pos<strValue.length;pos+1){
-    arr.push(strValue.indexOf('e',pos+1));
+    // arr.push(strValue.indexOf('e',pos+1));
     // pos=strValue.indexOf('e',pos+1);
 // }
 while(pos>-1){
